@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>5/3/1 Calculator</title>
+</head>
+<body>
+  <div class="topbar">
+    <h1>5/3/1 Calculator</h1>
+  </div>
+  <div class="sidenav">
+  <a href="https://jimwendler.com/" target="_blank">Link to Jim Wendler's Website</a><br>
+  <a href="https://jimwendler.com/blogs/jimwendler-com" target="_blank">Link to Jim Wendler's Blog</a>
+  </div>
+  <div class="main">
+  <h2>One Rep Max (ORM) Calculation: (Weight * Reps * 0.0333) + Weight</h2>
+  <p> Weight: <input type="text" id="orm_test_weight" value=""> </p>
+  <p> Reps: <input type="text" id="orm_test_reps" value=""> </p>
+  <button onclick="getOneRepMax()">Calculate</button>
+  <p id="outputMax"></p>
+  <hr>
+  
+  <h2>Main Lift ORM Values:</h2>
+  <table>
+    <tr>
+      <th>Squat</th>
+      <th>Bench Press</th>
+      <th>Deadlift</th>
+      <th>Overhead/Military Press</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="squatMax" value="0"></td>
+      <td><input type="text" id="benchMax" value="0"></td>
+      <td><input type="text" id="deadliftMax" value="0"></td>
+      <td><input type="text" id="pressMax" value="0"></td>
+    </tr>
+  </table>
+  
+  <h2>Training Max (TM) Modifier:</h2>
+  <form>
+    <label for="tm">Choose a TM Percentage:</label>
+    <select id="tm" name="tm">
+      <option value="0.90">90%</option>
+      <option value="0.85">85%</option>
+      <option value="0.80">80%</option>
+      <option value="0.75">75%</option>
+    </select>
+  </form>
+  
+  <br>
+  <button onclick="getTrainingMax()">Calculate TM</button>
+  <hr>
+  
+  <h2>Main Lift TM Values - If known, fill in values. If unknown, insert ORM values above and press calculate.</h2>
+  <table>
+    <tr>
+      <th>Squat TM</th>
+      <th>Bench Press TM</th>
+      <th>Deadlift TM</th>
+      <th>Overhead/Military Press TM</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="squatTM" value="0"></td>
+      <td><input type="text" id="benchTM" value="0"></td>
+      <td><input type="text" id="deadliftTM" value="0"></td>
+      <td><input type="text" id="pressTM" value="0"></td>
+    </tr>
+  </table>
+  
+  <br>
+  <hr>
+  <h2>Supplemental Routines:</h2>
+  <form>
+    <label for="sr">Choose Supplemental Routine:</label>
+    <select id="sr" name="sr">
+      <option value="NONE">None</option>
+      <option value="FSL">First Set Last (FSL)(Strength)</option>
+      <option value="BBB">Boring But Big (BBB)(Size)</option>
+    </select>
+  </form>
+  <br>
+  
+  <hr>
+  <br>
+  <button onclick="createMainLiftTables()">Create Lifting Schema</button>
+  </div>  
+  <div id="mainLiftTables">
+  </div>
+</body>
+</html> 
